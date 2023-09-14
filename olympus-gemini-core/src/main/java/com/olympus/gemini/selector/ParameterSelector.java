@@ -33,7 +33,7 @@ public class ParameterSelector {
             for (Field field : methods) {
                 try {
                     Object o = field.get(arg);
-                    builder.append(o);
+                    builder.append(o.hashCode());
                 } catch (IllegalAccessException e) {
                     throw new RuntimeException(e);
                 }
