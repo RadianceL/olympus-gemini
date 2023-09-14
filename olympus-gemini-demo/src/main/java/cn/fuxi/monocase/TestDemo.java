@@ -18,11 +18,9 @@ import java.util.concurrent.TimeUnit;
 public class TestDemo {
 
     public static void main(String[] args) throws InterruptedException {
-
         RedisTemplate<String, CacheableData> redisTemplate = createRedisTemplate();
         CallMethodInvokeHandler callMethodInvokeHandler = new CallMethodInvokeHandler(new RedisCallMemoryCache(redisTemplate));
         DemoService demoService = callMethodInvokeHandler.createCallMethodInvokeHandler(new DemoService());
-
         for (int i = 0; i < 10; i++) {
             System.out.println(demoService.test("1", "2"));
             TimeUnit.SECONDS.sleep(1);
